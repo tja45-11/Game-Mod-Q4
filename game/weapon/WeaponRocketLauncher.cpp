@@ -488,23 +488,11 @@ stateResult_t rvWeaponRocketLauncher::State_Rocket_Idle ( const stateParms_t& pa
 		
 		case STAGE_WAIT:
 			if ( AmmoAvailable ( ) > AmmoInClip() ) {
-				if ( idleEmpty ) {
-					SetRocketState ( "Rocket_Reload", 0 );
+				if (AmmoInClip() == 0) {
+					SetRocketState("Rocket_Reload", 0);
 					return SRESULT_DONE;
-				} else if ( ClipSize ( ) > 1 ) {
-					if ( gameLocal.time > nextAttackTime && AmmoInClip ( ) < ClipSize( ) ) {
-						if ( !AmmoInClip() || !wsfl.attack ) {
-							SetRocketState ( "Rocket_Reload", 0 );
-							return SRESULT_DONE;
-						}
-					}
-				} else {
-					if ( AmmoInClip ( ) == 0 ) {
-						SetRocketState ( "Rocket_Reload", 0 );
-						return SRESULT_DONE;
 					}				
 				}
-			}
 			return SRESULT_WAIT;
 	}
 	return SRESULT_ERROR;
@@ -525,12 +513,11 @@ stateResult_t rvWeaponRocketLauncher::State_Rocket_Reload ( const stateParms_t& 
 		case STAGE_INIT: {
 			const char* animName;
 			int			animNum;
-
 			if ( idleEmpty ) {
 				animName = "ammo_pickup";
 				idleEmpty = false;
-			} else if ( AmmoAvailable ( ) == AmmoInClip( ) + 1 ) {
-				animName = "reload_empty";
+			/* } else if (AmmoAvailable() == AmmoInClip() + 1) {
+				animName = "reload_empty";*/
 			} else {
 				animName = "reload";
 			}
