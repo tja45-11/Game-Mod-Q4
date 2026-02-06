@@ -520,9 +520,7 @@ void idProjectile::Think( void ) {
 	// run physics
 	if (owner->IsType(idPlayer::GetClassType())) {
 		idPlayer* player = static_cast<idPlayer*>(owner.GetEntity());
-		if (player->weapon->IsReloading()) {
-			SetSpeed(900, 1);
-		}
+		gameLocal.Printf("test");
 	}
 	if ( thinkFlags & TH_PHYSICS ) {
 		// Update the velocity to match the changing speed
