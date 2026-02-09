@@ -3,19 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\game\\weapon\\WeaponRocketLauncher.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|solutionrelative:game\\weapon\\WeaponRocketLauncher.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\game\\Projectile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|solutionrelative:game\\Projectile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\game\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|solutionrelative:game\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Steam\\steamapps\\common\\Quake 4\\RocketMod\\def\\weapons\\rocketlauncher.def||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\game\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|solutionrelative:game\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\game\\weapon\\WeaponRocketLauncher.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|solutionrelative:game\\weapon\\WeaponRocketLauncher.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\game\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -26,7 +26,7 @@
       "RelativeMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|solutionrelative:game\\Weapon.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\AAS\\AASFILE.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|C:\\USERS\\ICEMA\\ONEDRIVE\\DOCUMENTS\\GITHUB\\GAME-MOD-Q4\\AAS\\AASFILE.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{49BEC5C6-B964-417A-851E-808886B57430}|game.vcxproj|solutionrelative:AAS\\AASFILE.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -72,37 +72,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Projectile.cpp",
               "DocumentMoniker": "C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\game\\Projectile.cpp",
               "RelativeDocumentMoniker": "game\\Projectile.cpp",
               "ToolTip": "C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\game\\Projectile.cpp",
               "RelativeToolTip": "game\\Projectile.cpp",
-              "ViewState": "AgIAAPwBAAAAAAAAAAAAAAoCAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAP8BAAAAAAAAAAAAAAoCAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-01-31T20:30:06.401Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "WeaponRocketLauncher.cpp",
               "DocumentMoniker": "C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\game\\weapon\\WeaponRocketLauncher.cpp",
               "RelativeDocumentMoniker": "game\\weapon\\WeaponRocketLauncher.cpp",
               "ToolTip": "C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\game\\weapon\\WeaponRocketLauncher.cpp",
               "RelativeToolTip": "game\\weapon\\WeaponRocketLauncher.cpp",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAuwKEAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAL4BAAAAAAAAAAAhwBMCAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-01-31T03:26:20.089Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Player.cpp",
               "DocumentMoniker": "C:\\Users\\icema\\OneDrive\\Documents\\GitHub\\Game-Mod-Q4\\game\\Player.cpp",
               "RelativeDocumentMoniker": "game\\Player.cpp",
@@ -110,7 +110,8 @@
               "RelativeToolTip": "game\\Player.cpp",
               "ViewState": "AgIAAGYBAAAAAAAAAAAhwHMBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-01T02:20:19.364Z"
+              "WhenOpened": "2026-02-01T02:20:19.364Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -122,7 +123,8 @@
               "RelativeToolTip": "game\\Entity.cpp",
               "ViewState": "AgIAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-01T03:08:03.556Z"
+              "WhenOpened": "2026-02-01T03:08:03.556Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -134,7 +136,8 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files (x86)\\Steam\\steamapps\\common\\Quake 4\\RocketMod\\def\\weapons\\rocketlauncher.def",
               "ViewState": "AgIAABwAAAAAAAAAAAAmwE4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001913|",
-              "WhenOpened": "2026-01-31T23:59:48.463Z"
+              "WhenOpened": "2026-01-31T23:59:48.463Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -146,7 +149,8 @@
               "RelativeToolTip": "game\\Weapon.cpp",
               "ViewState": "AgIAAH4HAAAAAAAAAAAqwIkHAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-01-30T22:49:03.012Z"
+              "WhenOpened": "2026-01-30T22:49:03.012Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -158,7 +162,8 @@
               "RelativeToolTip": "aas\\AASFile.h",
               "ViewState": "AgIAAOcAAAAAAAAAAAASwPIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-01T03:00:25.779Z"
+              "WhenOpened": "2026-02-01T03:00:25.779Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -170,7 +175,8 @@
               "RelativeToolTip": "game\\Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-01T02:51:52.567Z"
+              "WhenOpened": "2026-02-01T02:51:52.567Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
