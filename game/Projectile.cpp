@@ -518,10 +518,10 @@ idProjectile::Think
 */
 void idProjectile::Think( void ) {
 	// run physics
-	/*if (owner->IsType(idPlayer::GetClassType())) {
+	if (owner->IsType(idPlayer::GetClassType())) {
 		idPlayer* player = static_cast<idPlayer*>(owner.GetEntity());
 		gameLocal.Printf("test");
-	} */
+	}
 	if ( thinkFlags & TH_PHYSICS ) {
 		// Update the velocity to match the changing speed
 		if ( updateVelocity ) {
@@ -791,7 +791,7 @@ bool idProjectile::Collide( const trace_t &collision, const idVec3 &velocity, bo
 		bool bounce = false;
 		
 		// Determine if the projectile should bounce
-		bounce = (!physicsObj.IsInWater() && !projectileFlags.detonate_on_world && !canDamage);
+		bounce = !physicsObj.IsInWater() && !projectileFlags.detonate_on_world && !canDamage;
 		bounce = bounce && (bounceCount == -1 || bounceCount > 0);
 		//assert(collision.c.material);
 		if ( !bounce && collision.c.material && (collision.c.material->GetSurfaceFlags() & SURF_BOUNCE) ) {

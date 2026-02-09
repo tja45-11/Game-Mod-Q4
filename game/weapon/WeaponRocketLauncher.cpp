@@ -38,7 +38,6 @@ protected:
 
 	rvClientEntityPtr<rvClientEffect>	guideEffect;
 	idList< idEntityPtr<idEntity> >		guideEnts;
-	idList< idEntityPtr<idEntity> >     stopEnts;
 	float								guideSpeedSlow;
 	float								guideSpeedFast;
 	float								guideRange;
@@ -171,6 +170,8 @@ void rvWeaponRocketLauncher::Think ( void ) {
 				proj->SetSpeed ( guideSpeedFast, (1.0f - (proj->GetSpeed ( ) - guideSpeedSlow) / (guideSpeedFast - guideSpeedSlow)) * guideAccelTime );
 			}
 		}
+
+		return;
 	}
 						
 	// Cast a ray out to the lock range
@@ -213,21 +214,14 @@ void rvWeaponRocketLauncher::OnLaunchProjectile ( idProjectile* proj ) {
 	rvWeapon::OnLaunchProjectile(proj);
 
 	// Double check that its actually a guided projectile
-	if (!proj) {
+	if ( !proj || !proj->IsType ( idGuidedProjectile::GetClassType() ) ) {
 		return;
-	} 
+	}
+
 	// Launch the projectile
 	idEntityPtr<idEntity> ptr;
 	ptr = proj;
-	
-	if (!proj->IsType(idGuidedProjectile::GetClassType())) {
-		stopEnts.Append(ptr);
-	}
-	else {
-		guideEnts.Append(ptr);
-	}
-
-	
+	guideEnts.Append ( ptr );	
 }
 
 /*
@@ -522,8 +516,8 @@ stateResult_t rvWeaponRocketLauncher::State_Rocket_Reload ( const stateParms_t& 
 			if ( idleEmpty ) {
 				animName = "ammo_pickup";
 				idleEmpty = false;
-			} else if (AmmoAvailable() == AmmoInClip() + 1) {
-				animName = "reload_empty";
+			/* } else if (AmmoAvailable() == AmmoInClip() + 1) {
+				animName = "reload_empty";*/
 			} else {
 				animName = "reload";
 			}
@@ -536,16 +530,6 @@ stateResult_t rvWeaponRocketLauncher::State_Rocket_Reload ( const stateParms_t& 
 			}
 
 			PlayAnim( ANIMCHANNEL_TORSO, animName, parms.blendFrames );				
-			int i;
-			for (i = stopEnts.Num() - 1; i >= 0; i--) {
-				idProjectile* proj = static_cast<idProjectile*>(stopEnts[i].GetEntity());
-				if (!proj || proj->IsHidden()) {
-					guideEnts.RemoveIndex(i);
-					continue;
-				} 
-				proj->SetSpeed(900, 0);
-				printf("hiya");
-			}
 
 			return SRESULT_STAGE ( STAGE_WAIT );
 		}
@@ -559,7 +543,7 @@ stateResult_t rvWeaponRocketLauncher::State_Rocket_Reload ( const stateParms_t& 
 				}
 				return SRESULT_DONE;
 			}
-			
+			/*
 			if ( gameLocal.isMultiplayer && gameLocal.time > nextAttackTime && wsfl.attack ) {
 				if ( AmmoInClip ( ) == 0 )
 				{
@@ -568,7 +552,7 @@ stateResult_t rvWeaponRocketLauncher::State_Rocket_Reload ( const stateParms_t& 
 				SetRocketState ( "Rocket_Idle", 0 );
 				return SRESULT_DONE;
 			}
-			
+			*/
 			return SRESULT_WAIT;
 	}
 	return SRESULT_ERROR;
