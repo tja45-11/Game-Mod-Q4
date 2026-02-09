@@ -5,7 +5,7 @@
 #include "../Game_local.h"
 
 #ifdef _WIN32
-#include "TypeInfo"
+#include "TypeInfo.h"
 #else
 #include "NoGameTypeInfo.h"
 #endif
