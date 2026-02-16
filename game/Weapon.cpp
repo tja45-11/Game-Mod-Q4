@@ -692,6 +692,8 @@ void rvWeapon::Spawn ( void ) {
 	stateThread.SetOwner( this );
 	
 	forceGUIReload = true;
+
+	element = 0;
 }
 
 /*

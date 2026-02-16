@@ -396,6 +396,8 @@ public:
 	
 	bool							forceGUIReload;
 
+	int								element;
+
 public:
 
 	idDict							spawnArgs;
