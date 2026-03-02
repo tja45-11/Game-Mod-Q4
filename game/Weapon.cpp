@@ -2504,7 +2504,7 @@ void rvWeapon::AddToClip ( int amount ) {
 rvWeapon::Attack
 ================
 */
-void rvWeapon::Attack( bool altAttack, int num_attacks, float spread, float fuseOffset, float power ) {
+void rvWeapon::Attack( bool altAttack, int num_attacks, float spread, float fuseOffset, float power, int infliction ) {
 	idVec3 muzzleOrigin;
 	idMat3 muzzleAxis;
 	
@@ -2611,7 +2611,7 @@ void rvWeapon::Attack( bool altAttack, int num_attacks, float spread, float fuse
 rvWeapon::LaunchProjectiles
 ================
 */
-void rvWeapon::LaunchProjectiles ( idDict& dict, const idVec3& muzzleOrigin, const idMat3& muzzleAxis, int num_projectiles, float spread, float fuseOffset, float power ) {
+void rvWeapon::LaunchProjectiles ( idDict& dict, const idVec3& muzzleOrigin, const idMat3& muzzleAxis, int num_projectiles, float spread, float fuseOffset, float power, int infliction) {
 	idProjectile*	proj;
 	idEntity*		ent;
 	int				i;
@@ -2739,7 +2739,7 @@ void rvWeapon::OnLaunchProjectile ( idProjectile* proj ) {
 rvWeapon::Hitscan
 ================
 */
-void rvWeapon::Hitscan( const idDict& dict, const idVec3& muzzleOrigin, const idMat3& muzzleAxis, int num_hitscans, float spread, float power ) {
+void rvWeapon::Hitscan( const idDict& dict, const idVec3& muzzleOrigin, const idMat3& muzzleAxis, int num_hitscans, float spread, float power, int infliction) {
 	idVec3  fxOrigin;
 	idMat3  fxAxis;
 	int		i;

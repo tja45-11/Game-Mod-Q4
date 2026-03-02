@@ -180,7 +180,7 @@ public:
 							// damage
 	void					SetupDamageGroups( void );
 
-	virtual	void			Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location );
+	virtual	void			Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int element, int infliction);
 // RAVEN BEGIN
 // nmckenzie: a final hook in the middle of the damage function
 	virtual void			AdjustHealthByDamage ( int inDamage ){health -= inDamage;}
@@ -395,9 +395,26 @@ private:
 	void					Event_PreExitVehicle( bool force );
 
 	void					Event_SetAnimRate	( float multiplier );
-	void					Event_DamageOverTime ( int endTime, int interval, idEntity *inflictor, idEntity *attacker, idVec3 &dir, const char *damageDefName, const float damageScale, int location );
-	virtual void			Event_DamageOverTimeEffect	( int endTime, int interval, const char *damageDefName );
+	void					Event_DamageOverTime ( int endTime, int interval, idEntity *inflictor, idEntity *attacker, idVec3 &dir, const char *damageDefName, const float damageScale, int location, int infliction);
+	virtual void			Event_DamageOverTimeEffect	( int endTime, int interval, const char *damageDefName);
 	void					Event_JointCrawlEffect ( const char *effectKeyName, float crawlSecs );
+
+
+
+	int aura;
+	int aura2;
+	int aura3;
+	int aura3;
+	int burningCD;
+	int physicalRes;
+	int anemoRes;
+	int pyroRes;
+	int electroRes;
+	int cryoRes;
+	int hydroRes;
+	int geoRes;
+	int dendroRes;
+	int freezeRes;
 
 	CLASS_STATES_PROTOTYPE ( idActor );
 

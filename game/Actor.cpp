@@ -468,6 +468,11 @@ idActor::idActor( void )
 
 	lightningEffects = 0;
 	lightningNextTime = 0;
+	
+	aura = physical;
+	aura2 = physical;
+	aura3 = physical;
+	burningCD = 0;
 }
 
 /*
@@ -2379,7 +2384,7 @@ calls Damage()
 ============
 */
 void idActor::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, 
-					  const char *damageDefName, const float damageScale, const int location ) {
+					  const char *damageDefName, const float damageScale, const int location, int element, int infliction ) {
 	if ( !fl.takedamage ) {
 		return;
 	}
@@ -3753,11 +3758,22 @@ void idActor::GetDebugInfo ( debugInfoProc_t proc, void* userData ) {
 
 //MCG: damage over time
 void idActor::Event_DamageOverTime ( int endTime, int interval, idEntity *inflictor, idEntity *attacker, idVec3 &dir,
-					   const char *damageDefName, const float damageScale, int location ) {
+					   const char *damageDefName, const float damageScale, int location, int element) {
 	const idDeclEntityDef* damageDef = gameLocal.FindEntityDef( damageDefName, false );
 	if ( damageDef ) {
 		inDamageEvent = true;
-		Damage( inflictor, attacker, dir, damageDefName, damageScale, location );
+		if (!element == burning) {
+			Damage(inflictor, attacker, dir, damageDefName, damageScale, location, element, physical);
+		} 
+		else if (burningCD >= 2) {
+			Damage(inflictor, attacker, dir, damageDefName, damageScale, location, pyro, pyro);
+			burningCD = 0;
+		}
+		else {
+			Damage(inflictor, attacker, dir, damageDefName, damageScale, location, pyro, physical);
+			burningCD++;
+		}
+			
 		inDamageEvent = false;
 		if ( endTime == -1 || gameLocal.GetTime() + interval <= endTime ) {
 			//post it again

@@ -779,6 +779,19 @@ public:
 		EVENT_MAXEVENTS
 	};
 
+	static const int				physical = 0;
+	static const int				anemo = 1;
+	static const int				pyro = 2;
+	static const int				electro = 3;
+	static const int				cryo = 4;
+	static const int				hydro = 5;
+	static const int				geo = 6;
+	static const int				dendro = 7;
+	static const int				burning = 8;
+	static const int				quicken = 9;
+	static const int				freeze = 10;
+
+
 protected:
 	idAnimator				animator;
 	damageEffect_t *		damageEffects;

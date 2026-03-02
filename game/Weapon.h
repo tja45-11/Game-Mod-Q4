@@ -139,7 +139,7 @@ public:
 	virtual bool		ClientReceiveEvent			( int event, int time, const idBitMsg &msg );
 	virtual void		ClientStale					( void );
 	virtual void		ClientUnstale				( void ) { }
-	virtual void		Attack						( bool altFire, int num_attacks, float spread, float fuseOffset, float power );
+	virtual void		Attack						( bool altFire, int num_attacks, float spread, float fuseOffset, float power, int infliction );
 	virtual void		GetDebugInfo				( debugInfoProc_t proc, void* userData );
 	virtual void		SpectatorCycle				( void ) { }
 	virtual bool		NoFireWhileSwitching		( void ) const { return false; }
@@ -210,8 +210,8 @@ public:
 
 	// Attack
 	bool				PerformAttack				( idVec3& muzzleOrigin, idMat3& muzzleAxis, float dmgPower );
-	void				LaunchProjectiles			( idDict& dict, const idVec3& muzzleOrigin, const idMat3& muzzleAxis, int num_projectiles, float spread, float fuseOffset, float power );
-	void				Hitscan						( const idDict& dict, const idVec3& muzzleOrigin, const idMat3& muzzleAxis, int num_hitscans, float spread, float power );
+	void				LaunchProjectiles			( idDict& dict, const idVec3& muzzleOrigin, const idMat3& muzzleAxis, int num_projectiles, float spread, float fuseOffset, float power, int infliction);
+	void				Hitscan						( const idDict& dict, const idVec3& muzzleOrigin, const idMat3& muzzleAxis, int num_hitscans, float spread, float power, int infliction);
 	void				AlertMonsters				( void );
 
 	// Mods
@@ -397,6 +397,14 @@ public:
 	bool							forceGUIReload;
 
 	int								element;
+	static const int				physical = 0;
+	static const int				anemo = 1;
+	static const int				pyro = 2;
+	static const int				electro = 3;
+	static const int				cryo = 4;
+	static const int				hydro = 5;
+	static const int				geo = 6;
+	static const int				dendro = 7;
 
 public:
 
