@@ -21,7 +21,7 @@ public:
 
 	virtual void			GetDebugInfo		( debugInfoProc_t proc, void* userData );
 
-	virtual	void			Damage				( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location );
+	virtual	void			Damage				( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int infliction, int element);
 	virtual void			AddDamageEffect		( const trace_t &collision, const idVec3 &velocity, const char *damageDefName, idEntity* inflictor );
 
 	virtual bool			UpdateRunStatus		( void );
@@ -483,7 +483,7 @@ rvMonsterGladiator::Damage
 ================
 */
 void rvMonsterGladiator::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, 
-					  const char *damageDefName, const float damageScale, const int location ) 
+					  const char *damageDefName, const float damageScale, const int location, int element, int infliction) 
 {	
 	const idDict *damageDef = gameLocal.FindEntityDefDict( damageDefName, false );
 	if ( damageDef )
@@ -531,7 +531,7 @@ void rvMonsterGladiator::Damage( idEntity *inflictor, idEntity *attacker, const 
 			}
 		}
 	}
-	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location );
+	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location, element, infliction);
 	if ( aifl.pain )
 	{//hurt
 		if ( usingShield )

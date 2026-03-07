@@ -19,7 +19,7 @@ public:
 		
 	virtual void			Think				( void );
 	
-	virtual	void			Damage				( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location );
+	virtual	void			Damage				( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int infliction, int element);
 	virtual void			OnDeath				( void );
 	
 protected:
@@ -194,7 +194,7 @@ void rvMonsterHeavyHoverTank::Restore ( idRestoreGame *savefile ) {
 	InitSpawnArgsVariables();
 }
 
-void rvMonsterHeavyHoverTank::Damage ( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location )
+void rvMonsterHeavyHoverTank::Damage ( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int element, int infliciton)
 {
 	if ( damageScale > 0.0f ) {
 		const idDict *damageDef = gameLocal.FindEntityDefDict( damageDefName, false );
@@ -208,7 +208,7 @@ void rvMonsterHeavyHoverTank::Damage ( idEntity *inflictor, idEntity *attacker, 
 		}
 	}
 
-	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location );
+	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location, element, infliciton);
 }
 
 /*

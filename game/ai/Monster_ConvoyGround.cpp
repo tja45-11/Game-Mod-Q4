@@ -24,7 +24,7 @@ public:
 	
 	virtual bool			CanTurn						( void ) const;
 	virtual bool			CanMove						( void ) const;
-	virtual	void			Damage						( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location );
+	virtual	void			Damage						( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int element, int inflcition);
 	virtual void			AdjustHealthByDamage		( int inDamage );
 
 	virtual void			GetDebugInfo				( debugInfoProc_t proc, void* userData );
@@ -241,7 +241,7 @@ void rvMonsterConvoyGround::AdjustHealthByDamage ( int damage ) {
 	}
 }
 
-void rvMonsterConvoyGround::Damage ( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location )
+void rvMonsterConvoyGround::Damage ( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int element, int infliction)
 {
 	vehicleCollision = false;
 	const idDict *damageDef = gameLocal.FindEntityDefDict( damageDefName, false );
@@ -249,7 +249,7 @@ void rvMonsterConvoyGround::Damage ( idEntity *inflictor, idEntity *attacker, co
 		vehicleCollision = true;
 	}
 
-	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location );
+	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location, element, infliction);
 }
 /*
 ================

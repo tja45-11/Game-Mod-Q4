@@ -23,7 +23,7 @@ public:
 
 	void		Think							( void );
 	bool		Pain							( idEntity *inflictor, idEntity *attacker, int damage, const idVec3 &dir, int location );
-	void		Damage							( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location );
+	void		Damage							( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int element, int infliciton);
 	void		OnWakeUp						( void );
 
 	// Add some dynamic externals for debugging
@@ -367,7 +367,7 @@ bool rvMonsterBossBuddy::PerformAction( rvAIAction* action, bool (idAI::*conditi
 // rvMonsterBossBuddy::Damage
 //------------------------------------------------------------
 void rvMonsterBossBuddy::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, 
-								const char *damageDefName, const float damageScale, const int location ) 
+								const char *damageDefName, const float damageScale, const int location, int element, int infliction ) 
 {
 	// get damage amount so we can decay the shields and check for ignoreShields
 	const idDict *damageDef = gameLocal.FindEntityDefDict( damageDefName, false );
@@ -419,7 +419,7 @@ void rvMonsterBossBuddy::Damage( idEntity *inflictor, idEntity *attacker, const 
 		AdjustShieldState( true );
 	}
 
-	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale * scale, loc );
+	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale * scale, loc, element, infliction);
 }
 
 //------------------------------------------------------------

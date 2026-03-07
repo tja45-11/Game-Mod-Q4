@@ -259,7 +259,7 @@ void rvMonsterSentry::Explode ( bool force ) {
 		gameLocal.RadiusDamage ( GetPhysics()->GetOrigin(), this, this, this, this, spawnArgs.GetString ( "def_kamakazi_damage" ), 1.0f );
 		
 		// Kill ourselves
-		Damage ( this, this, viewAxis[0], "damage_gib", 1.0f, 0 );
+		Damage ( this, this, viewAxis[0], "damage_gib", 1.0f, 0, pyro, pyro);
 	}
 }
 

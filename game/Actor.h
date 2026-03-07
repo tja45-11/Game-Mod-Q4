@@ -404,7 +404,6 @@ private:
 	int aura;
 	int aura2;
 	int aura3;
-	int aura3;
 	int burningCD;
 	int physicalRes;
 	int anemoRes;

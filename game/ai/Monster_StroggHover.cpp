@@ -23,7 +23,7 @@ public:
 	virtual void			Think				( void );
 	
 	virtual bool			Collide				( const trace_t &collision, const idVec3 &velocity );
-	virtual	void			Damage				( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location );
+	virtual	void			Damage				( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int infliction, int element);
 	virtual void			OnDeath				( void );
 	virtual	void			DeadMove			( void );
 
@@ -720,12 +720,12 @@ rvMonsterStroggHover::Damage
 ================
 */
 void rvMonsterStroggHover::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, 
-								  const char *damageDefName, const float damageScale, const int location ) {
+								  const char *damageDefName, const float damageScale, const int location, int element, int infliction) {
 	if ( attacker == this ) {
 		return;
 	}
 	bool wasDead = aifl.dead;
-	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location );
+	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location, element, infliction);
 
 	if ( !wasDead && aifl.dead ) {
 		SetState( "State_DeathSpiral" );

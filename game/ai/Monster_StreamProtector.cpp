@@ -18,7 +18,7 @@ public:
 
 	bool				CanTurn							( void ) const;
 	virtual bool		Pain							( idEntity *inflictor, idEntity *attacker, int damage, const idVec3 &dir, int location );
-	virtual	void		Damage							( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location );
+	virtual	void		Damage							( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int infliction, int element);
 
 protected:
 
@@ -227,12 +227,12 @@ rvMonsterStreamProtector::Damage
 ================
 */
 void rvMonsterStreamProtector::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, 
-								  const char *damageDefName, const float damageScale, const int location ) {
+								  const char *damageDefName, const float damageScale, const int location, int element, int infliction) {
 	if ( attacker && attacker->IsType( rvMonsterStreamProtector::GetClassType() ) ) {
 		//don't take damage from ourselves or other stream protectors
 		return;
 	}
-	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location );
+	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location, element, infliction);
 }
 
 /*

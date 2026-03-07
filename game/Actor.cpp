@@ -2402,6 +2402,8 @@ void idActor::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir
 	}
 
 	int	damage = damageDef->GetInt( "damage" ) * damageScale;
+	int element = damageDef->GetInt("element", 0);
+	int infliction = damageDef->GetInt("infliction", 0);
 	damage = GetDamageForLocation( damage, location );
 
 	// friendly fire damage

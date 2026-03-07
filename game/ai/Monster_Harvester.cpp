@@ -29,7 +29,7 @@ public:
 	virtual bool		UpdateAnimationControllers		( void );
 	bool				CanTurn							( void ) const;
 	virtual int			GetDamageForLocation			( int damage, int location );
-	virtual	void		Damage							( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location );
+	virtual	void		Damage							( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int infliction, int element);
 	virtual bool		SkipImpulse						( idEntity* ent, int id );
 
 protected:
@@ -500,12 +500,12 @@ rvMonsterHarvester::Damage
 ================
 */
 void rvMonsterHarvester::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, 
-								  const char *damageDefName, const float damageScale, const int location ) {
+								  const char *damageDefName, const float damageScale, const int location, int element, int infliction) {
 	if ( attacker == this ) {
 		//don't take damage from ourselves
 		return;
 	}
-	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location );
+	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location, element, infliction);
 }
 
 /*

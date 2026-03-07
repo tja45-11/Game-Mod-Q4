@@ -29,7 +29,7 @@ protected:
 
 	void				Killed							( idEntity *inflictor, idEntity *attacker, int damage, const idVec3 &dir, int location );
 
-	void				Damage							( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location );
+	void				Damage							( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int element, int infliction);
 
 	//The Makron behaves differently, and we don't always need him sinking back into an idle after every attack	
 	//This version is actually overridden
@@ -971,10 +971,10 @@ rvMonsterBossMakron::Damage
 ================
 */
 void rvMonsterBossMakron::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, 
-								const char *damageDefName, const float damageScale, const int location ) {
+								const char *damageDefName, const float damageScale, const int location, int element, int infliction) {
 	
 	//Deal damage here,
-	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location );
+	idAI::Damage( inflictor, attacker, dir, damageDefName, damageScale, location, element, infliction);
 
 	//if the Makron has 0 or less health, make sure he's killed
 	///if ( health <= 0 && !flagFlyingMode && !flagFakeDeath )	{
