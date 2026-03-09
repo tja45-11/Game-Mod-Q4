@@ -3654,7 +3654,91 @@ void idEntity::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &di
 	}
 
 	int	damage = damageDef->GetInt( "damage" );
-
+	int element = damageDef->GetInt("element", 0);
+	int infliction = damageDef->GetInt("infliction", 0);
+	gameLocal.Printf("damaged");
+	switch (element) {
+	case physical:
+		activeRes = physicalRes;
+		break;
+	case anemo:
+		activeRes = anemoRes;
+		break;
+	case pyro:
+		activeRes = pyroRes;
+		break;
+	case electro:
+		activeRes = electroRes;
+		break;
+	case cryo:
+		activeRes = cryoRes;
+		break;
+	case hydro:
+		activeRes = hydroRes;
+		break;
+	case geo:
+		activeRes = geoRes;
+		break;
+	case dendro:
+		activeRes = dendroRes;
+		break;
+	default:
+		activeRes = 0;
+		break;
+	}
+	if (activeRes >= 0) {
+		damage = damage / ((100 + activeRes) / 100);
+	}
+	else if (activeRes > -100) {
+		damage = damage / ((100 + activeRes / 2) / 100);
+	} else {
+		damage = damage * 2;
+	}
+	if (infliction > 0) {
+		switch (aura) {
+		case physical:
+			if (infliction > anemo && infliction < geo)
+			{
+				aura = infliction;
+			}
+			break;
+		case anemo:
+			break;
+		case pyro:
+			switch (infliction) {
+			case pyro:
+				gameLocal.Printf("Pyro on Pyro");
+				break;
+			case hydro:
+				damage *= 2;
+				aura = hydro;
+				break;
+				gameLocal.Printf("Forward Vaporize");
+			case cryo:
+				damage *= 1.5;
+				aura = physical;
+				break;
+			case anemo:
+				damage += 10;
+				aura = pyro;
+				break;
+			case geo:
+				break;
+			}
+			break;
+		case hydro:
+			switch (infliction) {
+			case pyro:
+				damage *= 1.5;
+				aura = physical;
+				gameLocal.Printf("Reverse Vaporize");
+				break;
+			case hydro:
+				gameLocal.Printf("Hydro on Hydro");
+				break;
+			}
+		}
+	}
 	// inform the attacker that they hit someone
 	attacker->DamageFeedback( this, inflictor, damage );
 	if ( damage ) {

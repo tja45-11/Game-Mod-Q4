@@ -315,6 +315,7 @@ entityDef damage_blaster
 	"inherit"					"damage_bullet"
 	"damage"					"8"
 	"element"					"5"
+	"infliction"				"5"
 
 	"fx_wound"					"effects/wounds/energy.fx"
 

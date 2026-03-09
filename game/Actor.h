@@ -180,7 +180,7 @@ public:
 							// damage
 	void					SetupDamageGroups( void );
 
-	virtual	void			Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int element, int infliction);
+	virtual	void			Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, const char *damageDefName, const float damageScale, const int location, int elementy, int inflictiony);
 // RAVEN BEGIN
 // nmckenzie: a final hook in the middle of the damage function
 	virtual void			AdjustHealthByDamage ( int inDamage ){health -= inDamage;}
@@ -401,19 +401,7 @@ private:
 
 
 
-	int aura;
-	int aura2;
-	int aura3;
-	int burningCD;
-	int physicalRes;
-	int anemoRes;
-	int pyroRes;
-	int electroRes;
-	int cryoRes;
-	int hydroRes;
-	int geoRes;
-	int dendroRes;
-	int freezeRes;
+	
 
 	CLASS_STATES_PROTOTYPE ( idActor );
 

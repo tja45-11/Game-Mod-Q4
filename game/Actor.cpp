@@ -2384,7 +2384,7 @@ calls Damage()
 ============
 */
 void idActor::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir, 
-					  const char *damageDefName, const float damageScale, const int location, int element, int infliction ) {
+					  const char *damageDefName, const float damageScale, const int location, int elementy, int inflictiony ) {
 	if ( !fl.takedamage ) {
 		return;
 	}
@@ -2402,10 +2402,8 @@ void idActor::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &dir
 	}
 
 	int	damage = damageDef->GetInt( "damage" ) * damageScale;
-	int element = damageDef->GetInt("element", 0);
-	int infliction = damageDef->GetInt("infliction", 0);
 	damage = GetDamageForLocation( damage, location );
-
+	
 	// friendly fire damage
 	bool noDmgFeedback = false;
 	if ( attacker->IsType ( idActor::Type ) && static_cast<idActor*>(attacker)->team == team ) {
