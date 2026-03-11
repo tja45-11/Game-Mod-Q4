@@ -1112,7 +1112,6 @@ void idItemPowerup::Spawn( void ) {
 	if( spawnArgs.GetInt( "time" ) == -1 ) {
 		time = -1;
 	}
-
 	type = spawnArgs.GetInt( "type", "0" );
 	
 	// If the powerup was dropped then make it dissapear using its remaining time.

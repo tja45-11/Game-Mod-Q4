@@ -1613,7 +1613,17 @@ void idAI::Killed( idEntity *inflictor, idEntity *attacker, int damage, const id
 	idAngles			ang;
 	const char*			modelDeath;
 	const idKeyValue*	kv;
-	
+	idItemPowerup gear;
+	idDict dict;
+	idPlayer* player;
+	dict.Set("type", "11");
+	dict.Set("time", "1");
+	gear.spawnArgs = dict;
+	if (inflictor->IsType(idPlayer::GetClassType())) {
+		player = static_cast<idPlayer*>(inflictor);
+		gameLocal.Printf("gearing");
+		gear.GiveToPlayer(player);
+	}
 	if ( g_debugDamage.GetBool() ) {
 		gameLocal.Printf( "Damage: joint: '%s', zone '%s'\n", animator.GetJointName( ( jointHandle_t )location ), 
 			GetDamageGroup( location ) );

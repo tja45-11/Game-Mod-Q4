@@ -145,7 +145,9 @@ enum {
 	POWERUP_TEAM_HEALTH_REGEN,
 	POWERUP_TEAM_DAMAGE_MOD,
 	
-	POWERUP_MAX
+	POWERUP_MAX,
+
+	POWERUP_ELEMENTUP
 };
 
 enum {
@@ -207,6 +209,14 @@ public:
 	int						clip[ MAX_WEAPONS ];
 	int						powerupEndTime[ POWERUP_MAX ];
 	int						weaponMods[ MAX_WEAPONS ];
+
+	int						anemoUp;
+	int						pyroUp;
+	int						electroUp;
+	int						cryoUp;
+	int						hydroUp;
+	int						geoUp;
+	int						dendroUp;
 
  	// multiplayer
  	int						ammoPredictTime;

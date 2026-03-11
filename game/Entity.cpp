@@ -558,6 +558,10 @@ void idEntity::Spawn( void ) {
 	if ( dict ) {
 		spawnArgs.Copy ( *dict );
 	}
+	/*if (!(dict->FindKey("aura") == NULL))
+	{
+		aura3 = dict->GetInt("aura", "0");
+	}*/
 // RAVEN END
 
 	// parse static models the same way the editor display does
@@ -992,6 +996,10 @@ idEntity::Think
 void idEntity::Think( void ) {
 	RunPhysics();
 	Present();
+	if (aura3 > physical) {
+		aura = aura3;
+		aura2 = physical;
+	}
 }
 
 /*
@@ -3653,46 +3661,11 @@ void idEntity::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &di
 		gameLocal.Error( "Unknown damageDef '%s'\n", damageDefName );
 	}
 
-	int	damage = damageDef->GetInt( "damage" );
-	int element = damageDef->GetInt("element", 0);
-	int infliction = damageDef->GetInt("infliction", 0);
-	gameLocal.Printf("damaged");
-	switch (element) {
-	case physical:
-		activeRes = physicalRes;
-		break;
-	case anemo:
-		activeRes = anemoRes;
-		break;
-	case pyro:
-		activeRes = pyroRes;
-		break;
-	case electro:
-		activeRes = electroRes;
-		break;
-	case cryo:
-		activeRes = cryoRes;
-		break;
-	case hydro:
-		activeRes = hydroRes;
-		break;
-	case geo:
-		activeRes = geoRes;
-		break;
-	case dendro:
-		activeRes = dendroRes;
-		break;
-	default:
-		activeRes = 0;
-		break;
-	}
-	if (activeRes >= 0) {
-		damage = damage / ((100 + activeRes) / 100);
-	}
-	else if (activeRes > -100) {
-		damage = damage / ((100 + activeRes / 2) / 100);
-	} else {
-		damage = damage * 2;
+	int	damage = damageDef->GetInt("damage", "10");
+	int infliction = 0;
+	if (!damageDef->FindKey("infliction")==NULL)
+	{
+		infliction = damageDef->GetInt("infliction", "0");
 	}
 	if (infliction > 0) {
 		switch (aura) {
@@ -3706,23 +3679,26 @@ void idEntity::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &di
 			break;
 		case pyro:
 			switch (infliction) {
-			case pyro:
-				gameLocal.Printf("Pyro on Pyro");
-				break;
 			case hydro:
 				damage *= 2;
 				aura = hydro;
+				gameLocal.Printf("\nForward Vaporize");
 				break;
-				gameLocal.Printf("Forward Vaporize");
 			case cryo:
 				damage *= 1.5;
 				aura = physical;
+				gameLocal.Printf("\nReverse Melt");
 				break;
 			case anemo:
 				damage += 10;
 				aura = pyro;
+				gameLocal.Printf("\nSwirl");
 				break;
 			case geo:
+				damage += 20;
+				damage *= 1.2;
+				aura = physical;
+				gameLocal.Printf("\nCrystalize");
 				break;
 			}
 			break;
@@ -3731,14 +3707,60 @@ void idEntity::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &di
 			case pyro:
 				damage *= 1.5;
 				aura = physical;
-				gameLocal.Printf("Reverse Vaporize");
+				gameLocal.Printf("\nReverse Vaporize");
+				break;
+			case cryo:
+				damage += health / 5;
+				aura = cryo;
+				aura2 = freeze;
+				gameLocal.Printf("\nFreeze");
+				break;
+			case anemo:
+				damage += 10;
+				aura = hydro;
+				gameLocal.Printf("\nSwirl");
+				break;
+			case geo:
+				damage += 20;
+				damage *= 1.2;
+				aura = physical;
+				gameLocal.Printf("\nCrystalize");
+				break;
+			}
+			break;
+		case cryo:
+			switch (infliction) {
+			case pyro:
+				damage *= 2;
+				aura = pyro;
+				aura2 = physical;
+				gameLocal.Printf("\nForward Melt");
 				break;
 			case hydro:
-				gameLocal.Printf("Hydro on Hydro");
+				aura2 = freeze;
+				gameLocal.Printf("\nRefreeze");
+				break;
+			case anemo:
+				damage += 10;
+				aura = cryo;
+				aura2 = physical;
+				gameLocal.Printf("\nSwirl");
+				break;
+			case geo:
+				damage += 20;
+				damage *= 1.2;
+				aura = physical;
+				aura2 = physical;
+				gameLocal.Printf("\nCrystalize");
 				break;
 			}
 		}
+
 	}
+	if (damage < 0) {
+		damage = 10;
+	}
+	damage = (int)damage;
 	// inform the attacker that they hit someone
 	attacker->DamageFeedback( this, inflictor, damage );
 	if ( damage ) {
@@ -3875,6 +3897,7 @@ This is a virtual function that subclasses are expected to implement.
 ============
 */
 void idEntity::Killed( idEntity *inflictor, idEntity *attacker, int damage, const idVec3 &dir, int location ) {
+
 }
 
 /***********************************************************************

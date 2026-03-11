@@ -206,6 +206,14 @@ void idInventory::Clear( void ) {
 	armor				= 0;
 	maxarmor			= 0;
 	secretAreasDiscovered = 0;
+	anemoUp = 0;
+	pyroUp = 0;
+	electroUp = 0;
+	cryoUp = 0;
+	hydroUp = 0;
+	geoUp = 0;
+	dendroUp = 0;
+
 
 	memset( ammo, 0, sizeof( ammo ) );
 
@@ -242,8 +250,14 @@ idInventory::GivePowerUp
 ==============
 */
 void idInventory::GivePowerUp( idPlayer *player, int powerup, int msec ) {
-	powerups |= 1 << powerup;
-	powerupEndTime[ powerup ] = msec == -1 ? -1 : (gameLocal.time + msec);
+	if (powerup == 11){
+		//switch () {
+		gameLocal.Printf("gear get");
+		//}
+	} else {
+		powerups |= 1 << powerup;
+		powerupEndTime[powerup] = msec == -1 ? -1 : (gameLocal.time + msec);
+	}
 }
 
 /*

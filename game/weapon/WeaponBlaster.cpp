@@ -28,6 +28,7 @@ protected:
 private:
 
 	int					chargeTime;
+	int					attackCounter = 0;
 	int					chargeDelay;
 	idVec2				chargeGlow;
 	bool				fireForced;
@@ -354,7 +355,6 @@ stateResult_t rvWeaponBlaster::State_Charge ( const stateParms_t& parms ) {
 					SetState ( "Fire", 0 );
 					return SRESULT_DONE;
 				}
-				
 				return SRESULT_WAIT;
 			} 
 			SetState ( "Charged", 4 );
@@ -385,6 +385,8 @@ stateResult_t rvWeaponBlaster::State_Charged ( const stateParms_t& parms ) {
 		case CHARGED_WAIT:
 			if ( !wsfl.attack ) {
 				fireForced = true;
+				attackCounter = 0;
+				chargeTime = .8;
 				SetState ( "Fire", 0 );
 				return SRESULT_DONE;
 			}
@@ -427,15 +429,18 @@ stateResult_t rvWeaponBlaster::State_Fire ( const stateParms_t& parms ) {
 
 	
 			if ( gameLocal.time - fireHeldTime > chargeTime ) {	
-				gameLocal.Printf("fire");
 				Attack ( true, 1, spread, 0, 1.0f, physical);
 				PlayEffect ( "fx_chargedflash", barrelJointView, false );
 				PlayAnim( ANIMCHANNEL_ALL, "chargedfire", parms.blendFrames );
+
 			} else {
-				gameLocal.Printf("fire");
 				Attack ( false, 1, spread, 0, 1.0f, physical);
 				PlayEffect ( "fx_normalflash", barrelJointView, false );
 				PlayAnim( ANIMCHANNEL_ALL, "fire", parms.blendFrames );
+				attackCounter += 1;
+				if (attackCounter > 5) {
+					chargeTime = .2;
+				}
 			}
 			fireHeldTime = 0;
 			

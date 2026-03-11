@@ -259,7 +259,7 @@ stateResult_t rvWeaponShotgun::State_Reload ( const stateParms_t& parms ) {
 				return SRESULT_DONE;
 			}
 			if ( AnimDone ( ANIMCHANNEL_ALL, 0 ) ) {
-				AddToClip( 1 );
+				AddToClip( 5 );
 				return SRESULT_STAGE ( STAGE_RELOADLOOP );
 			}
 			return SRESULT_WAIT;

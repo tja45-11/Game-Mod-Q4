@@ -692,16 +692,6 @@ protected:
 	int aura2;
 	int aura3;
 	int burningCD;
-	int activeRes;
-	int physicalRes;
-	int anemoRes;
-	int pyroRes;
-	int electroRes;
-	int cryoRes;
-	int hydroRes;
-	int geoRes;
-	int dendroRes;
-	int freezeRes;
 };
 
 // RAVEN BEGIN
