@@ -854,18 +854,6 @@ windowDef Desktop
 			background	"gui::ammoicon"
 			matcolor	1,1,1,1
 		}
-		windowDef element
-		{
-			rect	16,392,50,26
-			visible	1
-			forecolor	1,1,1,1
-			text	"gui::player_totalammo"
-			textscale	0.5
-			font	"fonts/chain"
-			shear	0,-.22
-			textalign	2
-			textstyle	1
-		}
 	}
 	windowDef p_health_mp
 	{
@@ -2368,5 +2356,13 @@ windowDef Desktop
 			set "p_exit_level::visible" "0";
 		}
 
+	}
+	windowDef AnemoUp
+	{
+		rect	529,110,100,19
+		visible	1
+		forecolor	0.486,1,0.486,1
+		text	"Anemo Chip: 1"
+		textscale	0.3
 	}
 }

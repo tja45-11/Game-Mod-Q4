@@ -497,6 +497,8 @@ entityDef monster_berserker
 	"use_aas"								"aas48"
 
 	// --------------------------------- Combat ----------------------------------
+	"loot"									"1"
+	"aura"									"2"
 	"health"								"300"
 	"painThreshold"							"20"
 

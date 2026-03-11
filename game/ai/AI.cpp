@@ -44,6 +44,8 @@ idAI::idAI
 idAI::idAI ( void ) {
 	projectile_height_to_distance_ratio = 1.0f;
 
+	bool loot = false;
+
 	aas						= NULL;
 	aasSensor				= NULL;
 	aasFind					= NULL;
@@ -616,6 +618,7 @@ void idAI::Spawn( void ) {
 	// Initialize the non saved spawn args
 	InitNonPersistentSpawnArgs ( );	
 
+	loot = spawnArgs.GetBool("loot", "0");
 	spawnArgs.GetInt(	"team",					"1",		team );
 	spawnArgs.GetInt(	"rank",					"0",		rank );
 
@@ -1617,12 +1620,11 @@ void idAI::Killed( idEntity *inflictor, idEntity *attacker, int damage, const id
 	idDict dict;
 	idPlayer* player;
 	dict.Set("type", "11");
-	dict.Set("time", "1");
+	dict.Set("time", "10");
 	gear.spawnArgs = dict;
-	if (inflictor->IsType(idPlayer::GetClassType())) {
+	if ((inflictor->IsType(idPlayer::GetClassType()) && this->loot)) {
 		player = static_cast<idPlayer*>(inflictor);
-		gameLocal.Printf("gearing");
-		gear.GiveToPlayer(player);
+		player->inventory.GivePowerUp(player, 11, 10);
 	}
 	if ( g_debugDamage.GetBool() ) {
 		gameLocal.Printf( "Damage: joint: '%s', zone '%s'\n", animator.GetJointName( ( jointHandle_t )location ), 

@@ -458,11 +458,12 @@ entityDef monster_grunt
 	"chatter_combat_rate"					"8"	
 
 	// --------------------------------- Combat ----------------------------------
-	"health"								"150"
+	"health"								"15000"
 	"health_rageThreshold"					"80"
 	"painThreshold"							"1"
 	"missile_visibility_joint"				"muzzle_flash"
 	"attackRange"							"0 700"
+	"loot"									"1"
 	
 	"tactical_ranged"						"0"
 	"tactical_rush"							"1"
@@ -480,14 +481,6 @@ entityDef monster_grunt
 	
 	"joint_eyeOffset"						"eyes"
 
-	"physicalRes"							"30"
-	"anemoRes"								"30"
-	"pyroRes"								"30"
-	"electroRes"							"30"
-	"cryoRes"								"30"
-	"hydroRes"								"30"
-	"geoRes"								"30"
-	"dendroRes"								"30"
 
 	// --------------------------------- Damage Zones -----------------------------
 	"damage_zone head"						"*neck"
@@ -577,6 +570,5 @@ entityDef monster_grunt
 	"fx_burn_particles"					"effects/monsters/teleport3.fx"
 	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
 
-	"aura"									"pyro"
 
 }

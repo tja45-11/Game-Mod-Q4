@@ -558,10 +558,7 @@ void idEntity::Spawn( void ) {
 	if ( dict ) {
 		spawnArgs.Copy ( *dict );
 	}
-	/*if (!(dict->FindKey("aura") == NULL))
-	{
-		aura3 = dict->GetInt("aura", "0");
-	}*/
+		aura3 = spawnArgs.GetInt("aura", "4");
 // RAVEN END
 
 	// parse static models the same way the editor display does
@@ -3657,22 +3654,21 @@ void idEntity::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &di
 	}
 
 	const idDict *damageDef = gameLocal.FindEntityDefDict( damageDefName, false );
+	
 	if ( !damageDef ) {
 		gameLocal.Error( "Unknown damageDef '%s'\n", damageDefName );
 	}
 
 	int	damage = damageDef->GetInt("damage", "10");
-	int infliction = 0;
-	if (!damageDef->FindKey("infliction")==NULL)
-	{
-		infliction = damageDef->GetInt("infliction", "0");
-	}
+	int	infliction = damageDef->GetInt("infliction", "0");
+	gameLocal.Printf("\ninflict " + infliction);
 	if (infliction > 0) {
 		switch (aura) {
 		case physical:
 			if (infliction > anemo && infliction < geo)
 			{
 				aura = infliction;
+				gameLocal.Printf("\nInflicted");
 			}
 			break;
 		case anemo:

@@ -88,7 +88,7 @@ entityDef weapon_railgun
 	"spread"				"10"
 
 	"inv_weapon"				"weapon_railgun"
-	"inv_start_ammo_railgun"		"10"
+	"inv_start_ammo_railgun"		"30"
 	"inv_item"				"1"
 	"inv_icon"				"gfx/guis/hud/icons/item_railgun"
 	"inv_name"				"#str_107408"
@@ -97,8 +97,8 @@ entityDef weapon_railgun
 	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_railgun"
 
 	"ammoType"				"ammo_railgun"
-	"ammoRequired"				"1"
-	"clipSize"				"3"
+	"ammoRequired"				"10"
+	"clipSize"				"10"
 	"lowAmmo"				"1"
 	"continuousFire"			"1"
 	"dryFireReload" 			"1"
@@ -348,6 +348,7 @@ entityDef weaponmod_railgun_penetrate
 
 entityDef hitscan_railgun
 {
+
 	"range"						"40000"
 
 	"push"						"40000"
@@ -435,7 +436,7 @@ entityDef damage_railgun
 {
 	"infliction"				"geo"
 
-	"damage"					"125"
+	"damage"					"25"
 	"push"						"500"
 	"knockback"					"100"
 	"gib"						"1"

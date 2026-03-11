@@ -319,8 +319,8 @@ entityDef damage_grenadeSplash
 {
 	"infliction"				"anemo"
 
-	"damage"					"200"
-	"radius"					"250"
+	"damage"					"10"
+	"radius"					"500"
 	"knockback"					"100"
 	"push"						"-3000"
 	"gib"						"0"

@@ -1233,6 +1233,8 @@ protected:
 	// Head states	
 	stateResult_t			State_Head_Idle						( const stateParms_t& parms );
 
+	bool loot;
+
 	CLASS_STATES_PROTOTYPE ( idAI );
 };
 

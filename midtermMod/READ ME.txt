@@ -1,0 +1,18 @@
+Quake Impact is a Quake 4 mod based on Genshin Impact. The mod adds elemental effects to weapons, and by switching weapons the player can perform elemental reactions which will increase the player's damage.
+Anemo + Pyro/Hydro/Cryo -> Swirl (Flat damage increase + reapplies first element)
+Pyro + Hydro -> Vaporize (Damage multiplied depending on first element applied) (1.5 for Hydro, 2 for Pyro)
+Pyro + Cryo -> Melt (Damage multiplied depending on first element applied) (1.5 for Pyro, 2 For Cryo)
+Cryo + Hydro -> Freeze (Percent of max health damage for first freeze + applies cryo, reapplies cryo for future hydro applications)
+Geo + Pyro/Hydro/Cryo -> Crystalize (Flat damage increase then multiplied by 1.2)
+By defeating enemies, the player can obtain gear which can switch the element of their weapons. Open the menu to do so by pressing B.
+Default elements:
+Blaster: Hydro
+Macchinegun: Hydro
+Shotgun: Cryo
+Hyperblaster:
+Grenade Launcher: Anemo
+Nailgun: 
+Rocket Launcher:
+Railgun: Geo
+Lightning Gun:
+Dark Matter Gun: Anemo

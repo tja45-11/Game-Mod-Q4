@@ -250,11 +250,26 @@ idInventory::GivePowerUp
 ==============
 */
 void idInventory::GivePowerUp( idPlayer *player, int powerup, int msec ) {
-	if (powerup == 11){
-		//switch () {
-		gameLocal.Printf("gear get");
-		//}
-	} else {
+	if (powerup == 11) {
+		switch (gameLocal.random.RandomInt(5)) {
+		case 1:
+			anemoUp += 1;
+			break;
+		case 2:
+			pyroUp += 1;
+			break;
+		case 3:
+			cryoUp += 1;
+			break;
+		case 4:
+			hydroUp += 1;
+			break;
+		case 5:
+			geoUp += 1;
+			break;
+		}
+	}
+	else {
 		powerups |= 1 << powerup;
 		powerupEndTime[powerup] = msec == -1 ? -1 : (gameLocal.time + msec);
 	}
