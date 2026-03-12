@@ -688,7 +688,7 @@ protected:
 	static const int				burning = 8;
 	static const int				quicken = 9;
 	static const int				freeze = 10;
-	int aura = 0;
+	int aura = physical;
 	int aura2;
 	int aura3;
 	int burningCD;

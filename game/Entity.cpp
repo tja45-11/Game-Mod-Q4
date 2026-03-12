@@ -558,7 +558,7 @@ void idEntity::Spawn( void ) {
 	if ( dict ) {
 		spawnArgs.Copy ( *dict );
 	}
-		aura3 = spawnArgs.GetInt("aura", "4");
+		aura3 = spawnArgs.GetInt("aura", "0");
 // RAVEN END
 
 	// parse static models the same way the editor display does
@@ -3661,14 +3661,13 @@ void idEntity::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &di
 
 	int	damage = damageDef->GetInt("damage", "10");
 	int	infliction = damageDef->GetInt("infliction", "0");
-	gameLocal.Printf("\ninflict " + infliction);
 	if (infliction > 0) {
 		switch (aura) {
 		case physical:
 			if (infliction > anemo && infliction < geo)
 			{
 				aura = infliction;
-				gameLocal.Printf("\nInflicted");
+				gameLocal.Printf("\nInflicted Element");
 			}
 			break;
 		case anemo:
