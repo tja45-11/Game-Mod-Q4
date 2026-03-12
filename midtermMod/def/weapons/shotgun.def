@@ -339,8 +339,7 @@ entityDef damage_pellet
 {
 	"inherit"					"damage_bullet"
 	"damage"					"1"
-	"element"					"5"
-	"infliction"				"cryo"
+	"infliction"				"4" //cryo
 
 	"splat_size"				"128"
 	

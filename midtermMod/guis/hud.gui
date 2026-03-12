@@ -4,6 +4,8 @@ windowDef Desktop
 	visible	1
 	nocursor	1
 	menugui	0
+	)	)
+	/	2
 	definevec4	"ws_on"	1,0.5,0,1
 	definevec4	"ws_off"	0.658,0.639,0.376,0.6
 	definevec4	"ws_glowon"	0.7,0.8,0.5,1
@@ -22,7 +24,7 @@ windowDef Desktop
 	float	"hidden"	0
 	float	"deathCount"	0
 	definefloat	"showGunInfo"	1
-	definefloat	"switchLeft"	(640-((gui::weaponcount*30)-2))/2
+	definefloat	"switchLeft"	(640-((gui::weaponcount*30)-2
 
 	onInit {
 		namedEvent "updateHealth";
@@ -443,7 +445,7 @@ windowDef Desktop
 	{
 		rect	2, 5, 638, 200
 		backcolor	0, 0, 0, 0
-		forecolor	0.9, 0.9, 0.0, 0.9
+		forecolor	0.898,0.898,0,0.898
 		visible	0
 		textscale	0.25
 		text	"gui::viewcomments"
@@ -612,7 +614,7 @@ windowDef Desktop
 		{
 			rect	44,429,49,26
 			visible	1
-			forecolor	0.866,0.921,0.764,1
+			forecolor	0.862,0.917,0.760,1
 			text	"gui::player_ammo"
 			textscale	0.5
 			font	"fonts/chain"
@@ -2359,10 +2361,42 @@ windowDef Desktop
 	}
 	windowDef AnemoUp
 	{
-		rect	529,110,100,19
+		rect	530,110,100,19
 		visible	1
-		forecolor	0.486,1,0.486,1
-		text	"Anemo Chip: 1"
+		forecolor	0.474,1,0.474,1
+		text	"Anemo Chip: gui::anemoUp"
+		textscale	0.3
+	}
+	windowDef PyroUp
+	{
+		rect	530,130,100,19
+		visible	1
+		forecolor	1,0,0,1
+		text	"Pyro Chip: gui::pyroUp"
+		textscale	0.3
+	}
+	windowDef CryoUp
+	{
+		rect	530,150,100,19
+		visible	1
+		forecolor	0,1,1,1
+		text	"Cryo Chip: gui::cryoUp"
+		textscale	0.3
+	}
+	windowDef HydroUp
+	{
+		rect	530,170,100,19
+		visible	1
+		forecolor	0,0.498,1,1
+		text	"Hydro Chip: gui::hydroUp"
+		textscale	0.3
+	}
+	windowDef GeoUp
+	{
+		rect	530,190,100,19
+		visible	1
+		forecolor	1,0.498,0,1
+		text	"Geo Chip: gui::geoUp"
 		textscale	0.3
 	}
 }

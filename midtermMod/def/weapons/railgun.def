@@ -434,7 +434,7 @@ entityDef hitscan_railgun_penetrate
 
 entityDef damage_railgun 
 {
-	"infliction"				"geo"
+	"infliction"				"6" //geo
 
 	"damage"					"25"
 	"push"						"500"

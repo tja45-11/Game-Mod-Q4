@@ -2794,7 +2794,7 @@ void rvWeapon::Hitscan( const idDict& dict, const idVec3& muzzleOrigin, const id
 			end += ( u * playerViewAxis[ 2 ] );
 #endif
 			dir = end - muzzleOrigin;
-			dir.z = dir.z / 100;
+			dir.z = dir.z / 20;
 		} else if( weaponDef->dict.GetBool( "shotgunSpreadStyle" ) ) {
 			float r = gameLocal.random.CRandomFloat() * spread * 16;
 			float u = gameLocal.random.CRandomFloat() * spread * 16;

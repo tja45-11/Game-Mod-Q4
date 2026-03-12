@@ -314,6 +314,7 @@ entityDef damage_blaster
 {
 	"inherit"					"damage_bullet"
 	"damage"					"8"
+	"infliction"				"5" //hydro
 
 	"fx_wound"					"effects/wounds/energy.fx"
 
@@ -326,7 +327,7 @@ entityDef damage_blaster_charged
 {
 	"inherit"					"damage_blaster"
 	"damage"					"50"
-	"infliction"				"hydro"
+	"infliction"				"5" //hydro
 }
 
 entityDef damage_blastersplash_charged

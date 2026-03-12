@@ -317,7 +317,7 @@ entityDef damage_grenadeDirect_mp
 
 entityDef damage_grenadeSplash 
 {
-	"infliction"				"anemo"
+	"infliction"				"1" //anemo
 
 	"damage"					"10"
 	"radius"					"500"

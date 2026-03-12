@@ -557,8 +557,9 @@ void idEntity::Spawn( void ) {
 	dict = gameLocal.FindEntityDefDict ( spawnArgs.GetString ( "def_persona", "" ), false );
 	if ( dict ) {
 		spawnArgs.Copy ( *dict );
+		//aura3 = dict->GetInt("aura", "0");
 	}
-		aura3 = spawnArgs.GetInt("aura", "0");
+		
 // RAVEN END
 
 	// parse static models the same way the editor display does
@@ -991,12 +992,12 @@ idEntity::Think
 ================
 */
 void idEntity::Think( void ) {
-	RunPhysics();
-	Present();
 	if (aura3 > physical) {
 		aura = aura3;
 		aura2 = physical;
 	}
+	RunPhysics();
+	Present();
 }
 
 /*
@@ -3660,7 +3661,8 @@ void idEntity::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &di
 	}
 
 	int	damage = damageDef->GetInt("damage", "10");
-	int	infliction = damageDef->GetInt("infliction", "0");
+	int infliction = 0;
+	infliction = damageDef->GetInt("infliction");
 	if (infliction > 0) {
 		switch (aura) {
 		case physical:

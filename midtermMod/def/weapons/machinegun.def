@@ -94,6 +94,7 @@ entityDef weapon_machinegun
 
 	"fireRate"					".5"
 	"spread"					"10"
+	"machinegunSpreadStyle"			"1"
 
 	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_machinegun"
 	"def_hitscan"				"hitscan_bullet"
@@ -382,6 +383,7 @@ entityDef damage_machinegun
 	"inherit"					"damage_bullet"
 	"damage"					"15"
 	"damage_flesh"				"18"
+	"infliction"				"5" //hydro
 
 	"deathPush"					"100"
 	"deathPushMin"				"3000 350"
