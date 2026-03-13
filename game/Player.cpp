@@ -250,28 +250,27 @@ idInventory::GivePowerUp
 ==============
 */
 void idInventory::GivePowerUp( idPlayer *player, int powerup, int msec ) {
-	idUserInterface * _hud = player->hud;
 	if (powerup == 11) {
 		switch (gameLocal.random.RandomInt(5)) {
 		case 0:
 			anemoUp += 1;
-			_hud->SetStateInt("anemoUp", anemoUp);
+			player->hud->SetStateInt("anemoUp", anemoUp);
 			break;
 		case 1:
 			pyroUp += 1;
-			_hud->SetStateInt("pyroUp", pyroUp);
+			player->hud->SetStateInt("pyroUp", pyroUp);
 			break;
 		case 2:
 			cryoUp += 1;
-			_hud->SetStateInt("cryoUp", cryoUp);
+			player->hud->SetStateInt("cryoUp", cryoUp);
 			break;
 		case 3:
 			hydroUp += 1;
-			_hud->SetStateInt("hydroUp", hydroUp);
+			player->hud->SetStateInt("hydroUp", hydroUp);
 			break;
 		case 4:
 			geoUp += 1;
-			_hud->SetStateInt("geoUp", geoUp);
+			player->hud->SetStateInt("geoUp", geoUp);
 			break;
 		}
 	}

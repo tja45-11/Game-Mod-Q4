@@ -690,7 +690,7 @@ protected:
 	static const int				freeze = 10;
 	int aura = physical;
 	int aura2;
-	int aura3;
+	int aura3 = NULL;
 	int burningCD;
 };
 

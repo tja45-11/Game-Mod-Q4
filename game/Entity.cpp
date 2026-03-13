@@ -557,9 +557,29 @@ void idEntity::Spawn( void ) {
 	dict = gameLocal.FindEntityDefDict ( spawnArgs.GetString ( "def_persona", "" ), false );
 	if ( dict ) {
 		spawnArgs.Copy ( *dict );
-		//aura3 = dict->GetInt("aura", "0");
+
 	}
-		
+	if (spawnArgs.GetInt("team") == 1) {
+		int numberly = gameLocal.random.RandomInt(4);
+		switch (numberly) {
+		case 1:
+			aura3 = 2;
+			gameLocal.Printf("Pyro Aura\n");
+			break;
+		case 2:
+			aura3 = 4;
+			gameLocal.Printf("Cryo Aura\n");
+			break;
+		case 3:
+			aura3 = 5;
+			gameLocal.Printf("Hydro Aura\n");
+			break;
+		default:
+			aura3 = 0;
+			gameLocal.Printf("No Aura\n");
+			break;
+		}
+	}
 // RAVEN END
 
 	// parse static models the same way the editor display does
@@ -992,10 +1012,6 @@ idEntity::Think
 ================
 */
 void idEntity::Think( void ) {
-	if (aura3 > physical) {
-		aura = aura3;
-		aura2 = physical;
-	}
 	RunPhysics();
 	Present();
 }
@@ -3664,6 +3680,10 @@ void idEntity::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &di
 	int infliction = 0;
 	infliction = damageDef->GetInt("infliction");
 	if (infliction > 0) {
+		if (aura3 > 0) {
+			aura = aura3;
+			aura2 = physical;
+		}
 		switch (aura) {
 		case physical:
 			if (infliction > anemo && infliction < geo)

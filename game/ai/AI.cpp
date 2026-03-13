@@ -44,7 +44,7 @@ idAI::idAI
 idAI::idAI ( void ) {
 	projectile_height_to_distance_ratio = 1.0f;
 
-	bool loot = false;
+	bool loot;
 
 	aas						= NULL;
 	aasSensor				= NULL;
@@ -618,7 +618,6 @@ void idAI::Spawn( void ) {
 	// Initialize the non saved spawn args
 	InitNonPersistentSpawnArgs ( );	
 
-	loot = spawnArgs.GetBool("loot", "0");
 	spawnArgs.GetInt(	"team",					"1",		team );
 	spawnArgs.GetInt(	"rank",					"0",		rank );
 
@@ -1622,7 +1621,7 @@ void idAI::Killed( idEntity *inflictor, idEntity *attacker, int damage, const id
 	dict.Set("type", "11");
 	dict.Set("time", "10");
 	gear.spawnArgs = dict;
-	if ((inflictor->IsType(idPlayer::GetClassType()) && this->loot)) {
+	if (inflictor->IsType(idPlayer::GetClassType()) && team == 1) {
 		player = static_cast<idPlayer*>(inflictor);
 		player->inventory.GivePowerUp(player, 11, 10);
 	}

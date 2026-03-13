@@ -122,10 +122,10 @@ void rvWeaponRailgun::Think ( void ) {
 ===============================================================================
 */
 
-CLASS_STATES_DECLARATION ( rvWeaponRailgun )
-	STATE ( "Idle",				rvWeaponRailgun::State_Idle)
-	STATE ( "Fire",				rvWeaponRailgun::State_Fire )
-	STATE ( "Reload",			rvWeaponRailgun::State_Reload )
+CLASS_STATES_DECLARATION(rvWeaponRailgun)
+STATE("Idle", rvWeaponRailgun::State_Idle)
+STATE("Fire", rvWeaponRailgun::State_Fire)
+STATE("Reload", rvWeaponRailgun::State_Reload)
 END_CLASS_STATES
 
 /*
@@ -138,6 +138,7 @@ stateResult_t rvWeaponRailgun::State_Idle( const stateParms_t& parms ) {
 		STAGE_INIT,
 		STAGE_WAIT,
 	};	
+
 	switch ( parms.stage ) {
 		case STAGE_INIT:
 			if ( !AmmoAvailable ( ) ) {
@@ -186,6 +187,7 @@ stateResult_t rvWeaponRailgun::State_Fire ( const stateParms_t& parms ) {
 	};	
 	switch ( parms.stage ) {
 		case STAGE_INIT:
+
 			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
 			Attack ( false, 10, spread, 0, 1.0f, physical);
 			PlayAnim ( ANIMCHANNEL_ALL, "fire", 0 );	

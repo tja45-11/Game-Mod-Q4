@@ -568,7 +568,7 @@ stateResult_t rvWeaponNailgun::State_Lower ( const stateParms_t& parms ) {
 	}
 	return SRESULT_ERROR;
 }
-
+int waitTime = 300;
 /*
 ================
 rvWeaponNailgun::State_Idle
@@ -581,6 +581,7 @@ stateResult_t rvWeaponNailgun::State_Idle( const stateParms_t& parms ) {
 		STAGE_INIT,
 		STAGE_WAIT,
 	};	
+	waitTime = 100;
 	switch ( parms.stage ) {
 		case STAGE_INIT:
 			if ( !AmmoInClip ( ) ) {
@@ -666,12 +667,19 @@ stateResult_t rvWeaponNailgun::State_Fire( const stateParms_t& parms ) {
 				PlayCycle ( ANIMCHANNEL_LEGS, "fire_slow", 4 );
 			}
 
+
 			if ( wsfl.zoom ) {				
 				Attack ( true, 1, spread, 0.0f, 1.0f, physical);
-				nextAttackTime = gameLocal.time + (altFireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
+				if (waitTime > 0) {
+					waitTime -= 30;
+				}
+				nextAttackTime = gameLocal.time + (altFireRate * owner->PowerUpModifier ( PMOD_FIRERATE )) + waitTime;
 			} else {
 				Attack ( false, 1, spread, 0.0f, 1.0f, physical);
-				nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
+				if (waitTime > 0) {
+					waitTime -= 30;
+				}
+				nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE )) + waitTime;
 			}
 			
 			// Play the exhaust effects

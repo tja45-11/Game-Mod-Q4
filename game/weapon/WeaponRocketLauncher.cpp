@@ -443,10 +443,24 @@ stateResult_t rvWeaponRocketLauncher::State_Fire ( const stateParms_t& parms ) {
 		STAGE_INIT,
 		STAGE_WAIT,
 	};	
+	const char* key, * value;
+	int			i;
+	idDict dict;
+	idEntity* newEnt = NULL;
+	float yaw;
+	idVec3 org;
+	idPlayer* player = gameLocal.GetLocalPlayer();
 	switch ( parms.stage ) {
 		case STAGE_INIT:
-			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));		
-			Attack ( false, 1, spread, 0, 1.0f, physical);
+			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));	
+			yaw = player->viewAngles.yaw;
+			dict.Set("classname", "monster_berserker");
+			dict.Set("angle", va("%f", yaw + 180));
+			dict.Set("Health", "100");
+			org = player->GetPhysics()->GetOrigin() + idAngles(0, yaw, 0).ToForward() * 80 + idVec3(0, 0, 1);
+			dict.Set("origin", org.ToString());
+			dict.Set("team", "0");
+			gameLocal.SpawnEntityDef(dict, &newEnt);
 			PlayAnim ( ANIMCHANNEL_LEGS, "fire", parms.blendFrames );	
 			return SRESULT_STAGE ( STAGE_WAIT );
 	

@@ -9,10 +9,10 @@ Default elements:
 Blaster: Hydro
 Macchinegun: Hydro
 Shotgun: Cryo
-Hyperblaster:
+Hyperblaster: Pyro
 Grenade Launcher: Anemo
-Nailgun: 
-Rocket Launcher:
+Nailgun: Geo
+Rocket Launcher: Physical
 Railgun: Geo
-Lightning Gun:
+Lightning Gun: Pyro
 Dark Matter Gun: Anemo
